@@ -1,0 +1,43 @@
+[
+  
+  {
+    "Planet":"Mercury",
+    "Mean distance from Sun (AU)":0.39,
+    "Equatorial radius (KM)":2439.64
+  },
+  {
+    "Planet":"Venus",
+    "Mean distance from Sun (AU)":0.72,
+    "Equatorial radius (KM)":6051.59
+  },
+  {
+    "Planet":"Earth",
+    "Mean distance from Sun (AU)":1.00,
+    "Equatorial radius (KM)":6378.10
+  },
+  {
+    "Planet":"Mars",
+    "Mean distance from Sun (AU)":1.52,
+    "Equatorial radius (KM)":3397.00
+  },
+  {
+    "Planet":"Jupiter",
+    "Mean distance from Sun (AU)":5.20,
+    "Equatorial radius (KM)":71492.68
+  },
+  {
+    "Planet":"Saturn",
+    "Mean distance from Sun (AU)":9.54,
+    "Equatorial radius (KM)":60267.14
+  },
+  {
+    "Planet":"Uranus",
+    "Mean distance from Sun (AU)":19.19,
+    "Equatorial radius (KM)":25557.25
+  },
+  {
+    "Planet":"Neptune",
+    "Mean distance from Sun (AU)":30.07,
+    "Equatorial radius (KM)":24766.36
+  }
+]

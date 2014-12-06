@@ -1,0 +1,20 @@
+
+html,body{
+	padding: 1em;
+	
+	font-size: 12px;
+	background: #333;
+	font-family: Helvetica;	
+}
+
+svg{
+	padding-top: 1em;
+	margin-top: 1em;
+	border-radius: 3px;
+	background: #333;
+}
+
+p, a{
+	color: #ecf0f1;
+}
+
