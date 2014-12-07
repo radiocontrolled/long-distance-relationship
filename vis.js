@@ -11,8 +11,6 @@ var getViewportDimensions = function(){
 	width = width * 0.90;	
 	height = window.innerHeight * 5;
 	
-
-	
 	solarSystem = d3.select("#planets")
 		.append("svg")
 		.attr("class", "axis")
@@ -25,10 +23,9 @@ var getViewportDimensions = function(){
 
 getViewportDimensions();
 
-
 d3.json("planets.json", function(error, data) {
 
-  if(data){
+  if(data) {
   	
  	 planetaryData = data; 
  	 
@@ -36,7 +33,7 @@ d3.json("planets.json", function(error, data) {
   
   }
   
-  else if(error){
+  else if(error) {
   	
   	console.log(error);
   
@@ -68,7 +65,7 @@ var visualise = function(planetaryData, height){
 		
 	var distanceFromSunScale = d3.scale.linear()
 		.domain([d3.min(distances),d3.max(distances)]) //input domain = min & max distances
-		.range([0, height - (height *0.1)]); // output range = height of svg
+		.range([0, height - (height * 0.1)]); // output range = height of svg
 	
 	var radiusScale = d3.scale.linear()
 		.domain([d3.min(radiuses),d3.max(radiuses)])
@@ -111,11 +108,7 @@ var visualise = function(planetaryData, height){
 			return d.Planet + ", " + d["Mean distance from Sun (AU)"];
 		})
 		.attr({
-			"x": function(){
-				//return (width/2) + 60;
-				//return 5;
-				return width;
-			},
+			"x": width,
 			"y": function(d){
 				return distanceFromSunScale(d["Mean distance from Sun (AU)"] );
 			},
@@ -167,7 +160,8 @@ d3.select(window).on('resize', resize);
 
 function resize(solarSystem) {
 	
-
+	// update canvas size
+	getViewportDimensions();
 
 
 	
