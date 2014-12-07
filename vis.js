@@ -65,7 +65,7 @@ var visualise = function(planetaryData, height){
 		
 	var distanceFromSunScale = d3.scale.linear()
 		.domain([d3.min(distances),d3.max(distances)]) //input domain = min & max distances
-		.range([0, height - (height * 0.1)]); // output range = height of svg
+		.range([0, height*0.95]); // output range = height of svg
 	
 	var radiusScale = d3.scale.linear()
 		.domain([d3.min(radiuses),d3.max(radiuses)])
