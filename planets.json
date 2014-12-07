@@ -1,6 +1,11 @@
 [
   
   {
+    "Planet":"Sun",
+    "Mean distance from Sun (AU)":0,
+    "Equatorial radius (KM)":null
+  },
+  {
     "Planet":"Mercury",
     "Mean distance from Sun (AU)":0.39,
     "Equatorial radius (KM)":2439.64

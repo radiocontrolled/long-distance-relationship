@@ -5,11 +5,13 @@ var height,
 	solarSystem;
 
 var getViewportDimensions = function(){	
-	/* check if viewing portrait or landscape ... */
 	width = document.getElementById("planets");
 	width = width.offsetWidth;
 	width = width * 0.90;	
-	height = width * 2;
+	height = window.innerHeight * 5;
+	
+	/* write media queries for changing orientation */ 
+
 };
 
 getViewportDimensions();
@@ -67,17 +69,17 @@ var visualise = function(planetaryData, height){
 		
 	var distanceFromSunScale = d3.scale.linear()
 		.domain([d3.min(distances),d3.max(distances)]) //input domain = min & max distances
-		.range([10, height - (height *0.1)]); // output range = height of svg
+		.range([0, height - (height *0.1)]); // output range = height of svg
 	
 	var radiusScale = d3.scale.linear()
 		.domain([d3.min(radiuses),d3.max(radiuses)])
-		.range([d3.min(radiuses)/3000,d3.max(radiuses)/3000]);
+		.range([d3.min(radiuses)/2000,d3.max(radiuses)/2000]);
 	
 	var planets = solarSystem.selectAll("circle")
-		.append("g")
-		.attr("transform","translate(10,10)")
 		.data(planetaryData)
 		.enter()
+		.append("g")
+		//.attr("transform","translate(0,10)")
 		.append("circle")
 		.attr({
 			"r": function(d) {
@@ -97,24 +99,32 @@ var visualise = function(planetaryData, height){
 		});
 		
 	
-	
+
 	var labels = solarSystem.selectAll("text")
 		.data(planetaryData)
 		.enter()
+		.append("g")
+		.attr("id", function(d){
+			return d.Planet;
+		})
+		.attr("transform","translate(0,5)")
 		.append("text")
 		.text(function(d){
-			return d.Planet + ", " + d["Mean distance from Sun (AU)"] + " au";
+			return d.Planet + ", " + d["Mean distance from Sun (AU)"];
 		})
 		.attr({
 			"x": function(){
-				return (width/2) + 50;
+				//return (width/2) + 60;
+				//return 5;
+				return width;
 			},
 			"y": function(d){
 				return distanceFromSunScale(d["Mean distance from Sun (AU)"] );
 			},
 			"fill": "white",
-			"text-anchor": "start"
+			"text-anchor": "end"
 		});
+
 
 
 	/* add rings to saturn - use a rect with rounded corners to represent this*/
@@ -122,7 +132,7 @@ var visualise = function(planetaryData, height){
 		.append("rect")
 		.attr({
 			"x": function(){
-				return (width/2) - ((radiusScale(saturn["Equatorial radius (KM)"]) * 2  )   );
+				return (width/2) - ((radiusScale(saturn["Equatorial radius (KM)"]) * 1.75  )   );
 			},
 			"y": function(){
 				return distanceFromSunScale(saturn["Mean distance from Sun (AU)"]);
@@ -132,10 +142,26 @@ var visualise = function(planetaryData, height){
 			"fill":"#ecf0f1",
 			"height":5,
 			"width": function(){
-				 return radiusScale(saturn["Equatorial radius (KM)"]) * 4 ;
+				 return radiusScale(saturn["Equatorial radius (KM)"]) * 3.5 ;
 			}
 			
 		});	
+		
+	
+	// define y axis 
+	var yAxis = d3.svg.axis()
+		.scale(distanceFromSunScale)
+		.orient("right")
+		.ticks(30);
+
+	// create y axis
+	var svg = d3.select("svg")
+		.append("g")
+    	.attr("class", "axis")
+    	.call(yAxis);
+	
+	
+	
 };
 
 d3.select(window).on('resize', resize);
