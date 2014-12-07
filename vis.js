@@ -5,16 +5,26 @@ var height,
 	solarSystem;
 
 var getViewportDimensions = function(){	
+	
 	width = document.getElementById("planets");
 	width = width.offsetWidth;
 	width = width * 0.90;	
 	height = window.innerHeight * 5;
 	
-	/* write media queries for changing orientation */ 
+
+	
+	solarSystem = d3.select("#planets")
+		.append("svg")
+		.attr("class", "axis")
+		.attr({
+			"width": width + "px",
+			"height": height + "px"
+		});
 
 };
 
 getViewportDimensions();
+
 
 d3.json("planets.json", function(error, data) {
 
@@ -36,17 +46,6 @@ d3.json("planets.json", function(error, data) {
 });
 
 	
-var setup = function(w,h) {
-	solarSystem = d3.select("#planets")
-		.append("svg")
-		.attr("class", "axis")
-		.attr({
-			"width": w + "px",
-			"height": h + "px"
-		});
-};
-
-setup(width, height);
 
 var visualise = function(planetaryData, height){
 	
@@ -79,7 +78,6 @@ var visualise = function(planetaryData, height){
 		.data(planetaryData)
 		.enter()
 		.append("g")
-		//.attr("transform","translate(0,10)")
 		.append("circle")
 		.attr({
 			"r": function(d) {
@@ -160,14 +158,18 @@ var visualise = function(planetaryData, height){
     	.attr("class", "axis")
     	.call(yAxis);
 	
-	
-	
+		
 };
+
+
 
 d3.select(window).on('resize', resize);
 
-function resize() {
-	getViewportDimensions();
+function resize(solarSystem) {
+	
+
+
+
 	
 }
 

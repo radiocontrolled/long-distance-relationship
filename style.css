@@ -10,13 +10,13 @@ svg{
 	margin-top: 1em;
 	background: #333;
 	border-top: 1px solid #f1c40f;
-	text-align: center;
 	margin: 0 auto;
 }
 
 
 p, a{
 	color: #ecf0f1!important;
+	text-align: left;
 }
 
 text, 
