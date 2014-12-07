@@ -20,7 +20,7 @@ var height,
 	svgAxis;
 
 var getViewportDimensions = function(){	
-	width = document.getElementById("planets").offsetWidth * 0.90;	
+	width = document.getElementById("planets").offsetWidth;	
 	height = window.innerHeight * 5;
 };
 
@@ -168,6 +168,9 @@ var visualise = function(planetaryData, height){
     	})
     	.append("text")
     	.text("au");
+    	
+
+   
 };
 
 

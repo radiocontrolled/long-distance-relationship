@@ -1,4 +1,4 @@
-# Long Distance Relationshop
+# Long Distance Relationship
 
 A D3.js visualisation of the distance of the Solar System's planets to the Sun. 
 
