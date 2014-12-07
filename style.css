@@ -29,16 +29,24 @@ text{
 	font-size: 1em!important;
 }
 
-.axis path,
+
 .axis line {
-    fill: none;
     stroke: #ecf0f1;
     shape-rendering: crispEdges;
 }
 
+.axis path{
+	fill: none;
+    stroke: #ecf0f1;
+    shape-rendering: crispEdges;
+   
+}
 .axis text {
     font-family: sans-serif;
     font-size: 11px;
+}
+.axisLabel{
+	font-size: 10px;
 }
 
 #Sun,
