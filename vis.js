@@ -161,7 +161,7 @@ d3.select(window).on('resize', resize);
 function resize(solarSystem) {
 	
 	// update canvas size
-	getViewportDimensions();
+	//getViewportDimensions();
 
 
 	
