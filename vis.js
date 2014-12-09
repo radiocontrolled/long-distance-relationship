@@ -29,8 +29,8 @@ getViewportDimensions();
 
 solarSystem = d3.selectAll("#planets")
 	.append("svg")
-	.attr("class", "axis")
 	.attr({
+		"class":"axis",
 		"width": width + "px",
 		"height": height + "px"
 	});
@@ -104,10 +104,12 @@ var visualise = function(planetaryData, height){
 		.data(planetaryData)
 		.enter()
 		.append("g")
-		.attr("id", function(d){
-			return d.Planet;
+		.attr({
+			"id": function(d){
+				return d.Planet;
+			},
+			"transform": "translate(0,5)"
 		})
-		.attr("transform","translate(0,5)")
 		.append("text")
 		.text(function(d){
 			return d.Planet + ", " + d["Mean distance from Sun (AU)"];
